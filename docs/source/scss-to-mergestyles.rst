@@ -38,7 +38,7 @@ When applying style sets in a component (e.g. Nav) to a sub-component (e.g. Acti
         color: blue
     }
 
-The conflict happens because it's root style set would normally be applied to a class like **root-###**, but being applied as `link` inside the Nav component applies that style set to **link-###** class name. Styles applied using this `$` selector syntax do not render out. This is an open bug [here](https://github.com/OfficeDev/office-ui-fabric-react/issues/4138).
+The conflict happens because it's root style set would normally be applied to a class like **root-###**, but being applied as `link` inside the Nav component applies that style set to **link-###** class name. Styles applied using this `$` selector syntax do not render out. This is an open bug `here <https://github.com/OfficeDev/office-ui-fabric-react/issues/4138>`_.
 
 Until then the only option is to use semantic classNames to target these elements.
 
@@ -49,8 +49,8 @@ Until then the only option is to use semantic classNames to target these element
     }
 
 
-### Static Functions Do Not Work in a Decorated Class
------------------------------------------------------
+Static Functions Do Not Work in a Decorated Class
+-------------------------------------------------
 
 Part of the process of converting a component to MergeStyles is to add the @customizable decorator to the ComponentBase class to allow theming to work.  This will, unfortunately, break any usage of static functions.
 
@@ -61,7 +61,7 @@ For example, the Layer component has a sibling component, LayerHost, that uses a
     LayerBase.notifyHostChanged(this.props.id);
 
 
-When LayerBase is using the @customizable decorator then the Class is no longer ``LayerBase`` but the outputted Class of :class:`ComponentWithInjectedProps` which itself does not possess the static class **notifyHostChanged**, so you will get a *Not a Function* error.  There is a bug open [here](https://github.com/OfficeDev/office-ui-fabric-react/issues/3988).
+When :Class:`LayerBase` is using the :class:`@customizable` decorator then the Class is no longer :Class:`LayerBase` but the outputted Class of :class:`ComponentWithInjectedProps` which itself does not possess the static function :func:`notifyHostChanged`, so you will get a **Not a Function** error.  There is a bug open here: `link <https://github.com/OfficeDev/office-ui-fabric-react/issues/3988>`_.
 
 In the meantime there are two possible options:
 
@@ -74,7 +74,7 @@ Tests Fail
 
 The change in file structure and the @customizable decorator will make certain types of tests fail that might need tweaking to make sure the tests are still looking for the right Class.  Especially tests that don't fully mount the component to test a very specific case will likely fail.
 
-For example using enzyme's `shallow()` function will no longer find the right class with **ComponentBase** nested inside or **Component** nested inside Customizable's **ComponentWithInjectedProps**. The common folder now contains a new helper function `shallowUntilTarget()` you can use instead. You can find the documentation on how to use `shallowUntilTarget()` [here](Testing#test-utilities--helpers).
+For example using enzyme's :func:`shallow()` function will no longer find the right class with **ComponentBase** nested inside or **Component** nested inside Customizable's **ComponentWithInjectedProps**. The common folder now contains a new helper function :func:`shallowUntilTarget` you can use instead. You can find the documentation on how to use :func:`shallowUntilTarget()` the testing `docs <Testing#test-utilities--helpers>`_.
 
 Guidelines
 ==========
@@ -172,7 +172,7 @@ Styling best practices
 Put selectors last
 ------------------
 
-While the order of properties generally doesn't matter (alphabetical is a fair default if you have no other preference), the `selectors` property should come last. This improves readability by preventing a single property from 'hiding' below a large `selectors` property.
+While the order of properties generally doesn't matter (alphabetical is a fair default if you have no other preference), the ``selectors`` property should come last. This improves readability by preventing a single property from 'hiding' below a large ``selectors`` property.
 
 .. code-block:: TypeScript
 

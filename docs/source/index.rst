@@ -22,9 +22,10 @@ Guide
    :caption: Contents:
    :hidden:
 
-   fabric-react
-   typescript
-   documentation
-   scss-to-mergestyles
+   fabric-react.rst
+   typescript.rst
+   documentation.rst
+   scss-to-mergestyles.rst
+   testing.md
 
 
